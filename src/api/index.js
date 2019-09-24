@@ -9,3 +9,7 @@ const config = {
 export const fetchProjects = () => {
   return axios.get('dev/Project', config)
 }
+
+export const fetchAssosById = (id) => {
+  return axios.get(`dev/Association/${id}`, config)
+}

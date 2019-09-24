@@ -11,7 +11,9 @@ export default {
     // })
     state.projects = [...projects]
   },
+  SET_ASSOCIATION: (state, { asso }) => {
 
+  },
   SET_USER: (state, { id, user }) => {
     Vue.set(state.users, id, user || false) /* false means user not found */
   }

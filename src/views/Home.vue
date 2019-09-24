@@ -2,26 +2,29 @@
   <div class="home">
     <Search />
     <div class="project_container">
-      <div class="project_item" v-for="(project, index) in projects" :key="`pj_${index}`">
-        <ProjectCard :data="project"></ProjectCard>
+      <div class="project_item" v-on:click="navigateToDetail(project)" v-for="(project, index) in projects" :key="`pj_${index}`">
+        <ProjectCard  :data="project"></ProjectCard>
       </div>
     </div>
+    <DonateButton project_id="test"></DonateButton>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Search from "@/components/Search.vue";
-import ProjectCard from "@/components/ProjectCard.vue";
+import Search from "@/components/Search.vue"
+import ProjectCard from "@/components/ProjectCard.vue"
+import DonateButton from "@/components/DonateButton.vue"
 
 export default {
   name: "home",
   data: () => ({
-    loading: true
+    loading: true,
   }),
   components: {
     Search,
-    ProjectCard
+    ProjectCard,
+    DonateButton
   },
   computed: {
     projects() {
@@ -34,6 +37,10 @@ export default {
       store.dispatch({ type: "FETCH_PROJECTS" }).then(() => {
         this.loading = false;
       });
+    },
+    navigateToDetail(project) {
+      console.log("project selected", project);
+      this.$router.push({name: 'projectDetail', params: {project}})
     }
   },
   beforeMount() {
