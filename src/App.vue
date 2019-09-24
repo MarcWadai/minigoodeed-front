@@ -5,6 +5,7 @@
         <router-link class="pure-menu-heading pure-menu-link" to="/">Home</router-link>
         <router-link class="pure-menu-heading pure-menu-link" to="/about">About</router-link>
       </div>
+      <router-link class="pure-menu-heading pure-menu-link" to="/login">Login</router-link>
     </div>
 
     <router-view />
@@ -20,9 +21,11 @@
   color: #2c3e50;
 }
 #nav {
-  padding: 30px;
+  margin: 20px;
   display: flex;
   text-align: left;
+  justify-content: space-between;
+  width: 100%;
 }
 /* 
 #nav a {
