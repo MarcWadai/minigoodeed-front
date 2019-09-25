@@ -128,6 +128,7 @@ export default {
           src: this.$data.ad.video_uri
         }
       ]);
+      player.play()
     },
     startCallBack: function(x) {
     },
