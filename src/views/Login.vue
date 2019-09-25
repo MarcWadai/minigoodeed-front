@@ -35,7 +35,6 @@ export default {
     checkForm(e) {
       e.preventDefault();
       this.$store.dispatch("LOGIN", {email: this.$data.emailValue, password: this.$data.passwordValue}).then((data) => {
-        console.log('lol', data)
         this.$router.push({ name: "home" })
         location.reload()
       }).catch(err => {

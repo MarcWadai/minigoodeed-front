@@ -5,8 +5,8 @@
         <router-link class="pure-menu-heading pure-menu-link" to="/">Home</router-link>
         <router-link class="pure-menu-heading pure-menu-link" to="/about">About</router-link>
       </div>
-      <router-link v-if="!haveToken" class="pure-menu-heading pure-menu-link" to="/login">Login</router-link>
-      <a v-if="haveToken" v-on:click="logout" class="pure-menu-heading pure-menu-link">Logout</a>
+      <router-link v-if="!haveToken" class="pure-menu-heading pure-menu-link log" to="/login">Login</router-link>
+      <a v-if="haveToken" v-on:click="logout" class="pure-menu-heading pure-menu-link log">Logout</a>
     </div>
 
     <router-view />
@@ -53,6 +53,10 @@ export default {
   text-align: left;
   justify-content: space-between;
   width: 100%;
+}
+
+.log {
+  margin-right: 50px;
 }
 /* 
 #nav a {

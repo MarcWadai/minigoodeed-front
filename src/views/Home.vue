@@ -38,12 +38,10 @@ export default {
       });
     },
     navigateToDetail(project) {
-      console.log("project selected", project);
       this.$router.push({name: 'projectDetail', params: {project}})
     }
   },
   mounted() {
-    console.log("this.$store", this.$store);
     this.fetchProjects(this.$store);
   }
 };

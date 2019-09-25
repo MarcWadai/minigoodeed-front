@@ -99,9 +99,6 @@ export default {
     },
     timerStartTime() {
       const date = new Date();
-      console.log(
-        `${date.getFullYear()}-${date.getMonth()}-${date.getDay()} ${date.getHours()}-${date.getMinutes()}-${date.getSeconds()}`
-      );
       return `${date.getFullYear()}-${date.getMonth()}-${date.getDay()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
     },
     timerStartEnd() {
@@ -115,7 +112,6 @@ export default {
     // listen event
     onPlayerPlay(player) {},
     onPlayerPause(player) {
-      // console.log('player pause!', player)
     },
     // ...player event
     onPlayerPlaying(player) {
@@ -134,10 +130,8 @@ export default {
       ]);
     },
     startCallBack: function(x) {
-      console.log(x);
     },
     endCallBack: function(x) {
-      console.log(x);
       const current = new Date();
       if (current.getTime() > this.timerStartEnd) {
         this.countFinish = true;
@@ -145,7 +139,6 @@ export default {
     },
     confirmationDonation: async function() {
         try{
-            console.log("this", this);
             this.$data.isLoading = true;
             const campaignId = this.$data.ad._id;
             const projectId = this.$props.project_id;

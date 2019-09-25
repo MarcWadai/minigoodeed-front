@@ -49,9 +49,7 @@ export default {
   },
   methods: {},
   beforeMount() {
-    console.log("this.project", this.project.assos_id);
     fetchAssosById(this.project.assos_id).then(asso => {
-      console.log('asso', asso);
       this.$data.asso = asso;
     }).catch(err => {
       console.error(err);
