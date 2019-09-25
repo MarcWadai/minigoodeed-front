@@ -3,6 +3,7 @@
     <div id="nav">
       <div class="pure-menu pure-menu-horizontal">
         <router-link class="pure-menu-heading pure-menu-link" to="/">Home</router-link>
+        <router-link class="pure-menu-heading pure-menu-link" to="/assos">Associations</router-link>
         <router-link class="pure-menu-heading pure-menu-link" to="/about">About</router-link>
       </div>
       <router-link v-if="!haveToken" class="pure-menu-heading pure-menu-link log" to="/login">Login</router-link>

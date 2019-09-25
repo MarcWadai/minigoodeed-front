@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import ProjectDetail from './views/ProjectDetail.vue'
 import Donation from './views/Donation.vue'
+import Association from './views/Association.vue'
 
 Vue.use(Router)
 
@@ -30,6 +31,15 @@ const router = new Router({
       path: '/project',
       name: 'projectDetail',
       component: ProjectDetail,
+      props: true,
+      meta: {
+        guest: true
+      }
+    },
+    {
+      path: '/assos',
+      name: 'assos',
+      component: Association,
       props: true,
       meta: {
         guest: true

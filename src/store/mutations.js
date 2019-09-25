@@ -10,8 +10,8 @@ export default {
     // })
     state.projects = [...projects]
   },
-  SET_ASSOCIATION: (state, { asso }) => {
-
+  SET_ASSOCIATIONS: (state, { assos }) => {
+    state.assos = [...assos]
   },
   SET_JWT: (state, { jwt }) => {
     state.jwt = jwt

@@ -1,9 +1,16 @@
-import { fetchProjects, fetchAssosById, login, register } from '../api'
+import { fetchProjects, fetchAssosById, login, register, fetchAssos } from '../api'
 
 export const FETCH_PROJECTS = ({ commit, dispatch, state }) => {
   return fetchProjects()
     .then(projects => {
       return commit('SET_PROJECTS', { projects: projects.data })
+    })
+}
+
+export const FETCH_ASSOCIATIONS = ({ commit, dispatch, state }) => {
+  return fetchAssos()
+    .then(assos => {
+      return commit('SET_ASSOCIATIONS', { assos })
     })
 }
 
