@@ -60,10 +60,9 @@ export default {
 
 .search_container {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   width: 100%;
   margin: 50px;
-  margin-left: 8%;
 }
 
 

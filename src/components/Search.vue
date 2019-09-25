@@ -20,4 +20,8 @@ export default {
   margin-left: 15px;
 }
 
+form {
+  align-items: baseline;
+  justify-content: center;
+}
 </style>

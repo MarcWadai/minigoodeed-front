@@ -12,6 +12,7 @@ export default {
   },
   SET_ASSOCIATIONS: (state, { assos }) => {
     state.assos = [...assos]
+    // Vue.set(state, 'assos', [...assos])
   },
   SET_JWT: (state, { jwt }) => {
     state.jwt = jwt

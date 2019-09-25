@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="project_container">
-      <div class="project_item" v-for="(asso, index) in assos" :key="`pj_${index}`">
+      <div class="project_item" v-for="(asso, index) in assos" :key="`assos_${index}`">
         <AssociationCard :data="asso"></AssociationCard>
       </div>
     </div>
@@ -28,11 +28,12 @@ export default {
     fetchAssos(store) {
       this.loading = true;
       store.dispatch({ type: "FETCH_ASSOCIATIONS" }).then(() => {
+        console.log(this.assos)
         this.loading = false;
       });
     },
   },
-  mounted() {
+  beforeMount() {
     this.fetchAssos(this.$store);
   }
 };

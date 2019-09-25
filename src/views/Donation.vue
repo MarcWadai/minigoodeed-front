@@ -30,9 +30,8 @@
         >Confirm donation</button>
       </div>
     </div>
-    <div class="brand_video">
+    <div class="brand_video" @click="redirect">
       <video-player
-        @click="redirect"
         class="video-player-box"
         ref="videoPlayer"
         :options="playerOptions"
@@ -107,7 +106,7 @@ export default {
   },
   methods: {
     redirect() {
-      window.open(ad.redirect_uri);
+      window.open('http://www.' + this.$data.ad.redirect_uri);
     },
     // listen event
     onPlayerPlay(player) {},
