@@ -48,9 +48,10 @@ export default {
     }
   },
   methods: {},
-  mounted() {
+  beforeMount() {
     console.log("this.project", this.project.assos_id);
     fetchAssosById(this.project.assos_id).then(asso => {
+      console.log('asso', asso);
       this.$data.asso = asso;
     }).catch(err => {
       console.error(err);
@@ -90,5 +91,9 @@ export default {
 }
 .description_container .donation span {
   font-style: italic;
+}
+
+h4 {
+  margin-top: 40px;
 }
 </style>

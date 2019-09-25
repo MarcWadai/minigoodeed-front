@@ -11,7 +11,9 @@ export const fetchProjects = () => {
 }
 
 export const fetchAssosById = (id) => {
-  return axios.get(`dev/Association/${id}`, config)
+  return axios.get(`dev/Association/${id}`, config).then(data => {
+    return Promise.resolve(data.data)
+  })
 }
 
 export const login = ({ email, password }) => {

@@ -1,12 +1,11 @@
 <template>
   <div class="home">
-    <Search />
+    <Search class="search_container"/>
     <div class="project_container">
       <div class="project_item" v-on:click="navigateToDetail(project)" v-for="(project, index) in projects" :key="`pj_${index}`">
         <ProjectCard  :data="project"></ProjectCard>
       </div>
     </div>
-    <DonateButton project_id="test"></DonateButton>
   </div>
 </template>
 
@@ -60,6 +59,15 @@ export default {
 .project_item {
   min-width: 300px;
 }
+
+.search_container {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 50px;
+  margin-left: 8%;
+}
+
 
 @media only screen and (max-width: 600px) {
   .project_item {
