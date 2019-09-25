@@ -1,20 +1,25 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { FETCH_PROJECTS, FETCH_ASSOS_ID } from './actions'
+import { FETCH_PROJECTS, FETCH_ASSOS_ID, LOGIN, REGISTER, LOGOUT } from './actions'
 import mutations from './mutations'
-import getters from './getters'
+// import getters from './getters'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
     projects: [],
-    assos: {}
+    jwt: null
   },
   actions: {
     FETCH_PROJECTS,
-    FETCH_ASSOS_ID
+    FETCH_ASSOS_ID,
+    LOGIN,
+    REGISTER,
+    LOGOUT
   },
   mutations,
-  getters
+  getters: {
+    getJwt: state => state.jwt
+  }
 })

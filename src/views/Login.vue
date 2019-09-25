@@ -1,17 +1,17 @@
 <template>
   <div class="login_container">
-    <form class="pure-form pure-form-stacked">
+    <form class="pure-form pure-form-stacked" @submit="checkForm">
       <fieldset>
         <!-- <legend>Welcome to Mini goodeed</legend> -->
 
-        <input id="email" type="email" placeholder="Email" />
-        <span class="pure-form-message">This is a required field.</span>
+        <input id="email" type="email" placeholder="Email" v-model="emailValue" />
+        <span v-if="!emailValue" class="pure-form-message">This is a required field.</span>
 
-        <input id="password" type="password" placeholder="Password" />
-        <span class="pure-form-message">This is a required field.</span>
+        <input id="password" type="password" placeholder="Password" v-model="passwordValue" />
+        <span v-if="!passwordValue" class="pure-form-message">This is a required field.</span>
 
         <div class="button_container">
-          <button type="submit" class="pure-button pure-button-primary">Sign in</button>
+          <button :disabled="!emailValue || !passwordValue" type="submit" class="pure-button pure-button-primary">Sign in</button>
           <span>Not register yet ?</span>
           <router-link to="/register">Sign up</router-link>
         </div>
@@ -26,9 +26,23 @@
 export default {
   name: "Login",
   props: {},
-  data: () => ({}),
+  data: () => ({
+    passwordValue: "",
+    emailValue: ""
+  }),
   components: {},
-  methods: {},
+  methods: {
+    checkForm(e) {
+      e.preventDefault();
+      this.$store.dispatch("LOGIN", {email: this.$data.emailValue, password: this.$data.passwordValue}).then((data) => {
+        console.log('lol', data)
+        this.$router.push({ name: "home" })
+        location.reload()
+      }).catch(err => {
+        console.error(err)
+      });
+    }
+  },
   mounted() {}
 };
 </script>
@@ -54,9 +68,8 @@ form {
 }
 
 .button_container {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
 }
-
 </style>

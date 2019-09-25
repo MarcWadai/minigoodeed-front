@@ -5,12 +5,39 @@
         <router-link class="pure-menu-heading pure-menu-link" to="/">Home</router-link>
         <router-link class="pure-menu-heading pure-menu-link" to="/about">About</router-link>
       </div>
-      <router-link class="pure-menu-heading pure-menu-link" to="/login">Login</router-link>
+      <router-link v-if="!haveToken" class="pure-menu-heading pure-menu-link" to="/login">Login</router-link>
+      <a v-if="haveToken" v-on:click="logout" class="pure-menu-heading pure-menu-link">Logout</a>
     </div>
 
     <router-view />
   </div>
 </template>
+
+<script>
+export default {
+  name: "app",
+  data: () => ({
+    // haveToken: (localStorage.getItem('jwt') != undefined) ? true: false,
+  }),
+  computed: {
+    jwt () {
+      return this.$store.getters.getJwt
+    },
+    haveToken () {
+      const jwt = localStorage.getItem("jwt")
+      if (jwt) return true
+      return false;
+    }
+  },
+  methods: {
+    logout () {
+      // localStorage.removeItem('jwt')
+      this.$store.dispatch("LOGOUT");
+      location.reload()
+    }
+  }
+};
+</script>
 
 <style>
 #app {

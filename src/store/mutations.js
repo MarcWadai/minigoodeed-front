@@ -1,4 +1,4 @@
-import Vue from 'vue'
+// import Vue from 'vue'
 
 export default {
 
@@ -14,7 +14,7 @@ export default {
   SET_ASSOCIATION: (state, { asso }) => {
 
   },
-  SET_USER: (state, { id, user }) => {
-    Vue.set(state.users, id, user || false) /* false means user not found */
+  SET_JWT: (state, { jwt }) => {
+    state.jwt = jwt
   }
 }

@@ -1,9 +1,8 @@
 <template>
   <div class="project_card">
-    <button class="pure-button pure-button-primary">
-        <router-link :to="{name: 'donation', params: {project_id}}">DONATE</router-link>
-        
-        </button>
+    <router-link :to="{name: 'donation', params: {project_id}}">
+      <button class="pure-button pure-button-primary">DONATE</button>
+    </router-link>
   </div>
 </template>
 
@@ -14,19 +13,18 @@ export default {
     project_id: String
   },
   computed: {},
-  methods: {
-  }
+  methods: {}
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 a {
-    color: white;
-    font-weight: bold;
-    text-decoration: unset;
+  color: white;
+  font-weight: bold;
+  text-decoration: unset;
 }
 button {
-    width: 50%;
+  width: 50%;
 }
 </style>

@@ -73,22 +73,33 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-  if (to.matched.some(record => record.meta.requiresAuth)) {
-    if (localStorage.getItem('jwt') == null) {
+  if (to.meta.requiresAuth) {
+    if (localStorage.getItem('jwt') === null || localStorage.getItem('jwt') === undefined) {
       next({
         path: '/login',
         params: { nextUrl: to.fullPath }
       })
     }
-  } else if (to.matched.some(record => record.meta.guest)) {
-    if (localStorage.getItem('jwt') === null) {
-      next()
-    } else {
-      next({ name: 'home' })
-    }
-  } else {
-    next()
   }
+  next()
+  // console.log('to', to)
+  // console.log('localStorage.getItem', localStorage.getItem('jwt'))
+  // if (to.matched.some(record => record.meta.requiresAuth)) {
+  //   if (localStorage.getItem('jwt') == null) {
+  //     next({
+  //       path: '/login',
+  //       params: { nextUrl: to.fullPath }
+  //     })
+  //   }
+  // } else if (to.matched.some(record => record.meta.guest)) {
+  //   if (localStorage.getItem('jwt') === null) {
+  //     next()
+  //   } else {
+  //     next({ name: 'home' })
+  //   }
+  // } else {
+  //   next()
+  // }
 })
 
 export default router

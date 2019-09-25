@@ -91,15 +91,9 @@ export default {
     playerStateChanged(playerCurrentState) {
       console.log('player current update state', playerCurrentState)
     },
-
     // player is ready
     playerReadied(player) {
       console.log("the player is readied", player);
-      // you can use it to do something...
-      // player.[methods]
-      console.log('this.player', this.player);
-    //   this.player.play();
-
     }
   }
 };
