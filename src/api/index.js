@@ -2,10 +2,10 @@ import axios from 'axios'
 
 const config = {
   headers: {
-    'x-api-key': 'IjGRwrFJnK50JSYUnLqIq3G1C0xed66L3erR0BlM'
+    'x-api-key': process.env.VUE_APP_API_KEY
   }
 }
-const uri = 'https://juga3oyyik.execute-api.eu-west-1.amazonaws.com/'
+const uri = process.env.VUE_APP_ROOT_API
 // const uri = 'https://api-goodeed.positiveactions.co'
 
 export const fetchProjects = () => {
@@ -14,6 +14,12 @@ export const fetchProjects = () => {
 
 export const fetchAssosById = (id) => {
   return axios.get(uri + `dev/Association/${id}`, config).then(data => {
+    return Promise.resolve(data.data)
+  })
+}
+
+export const fetchAssos = () => {
+  return axios.get(uri + `dev/Association`, config).then(data => {
     return Promise.resolve(data.data)
   })
 }
