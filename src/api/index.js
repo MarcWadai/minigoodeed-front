@@ -6,6 +6,7 @@ const config = {
   }
 }
 const uri = 'https://juga3oyyik.execute-api.eu-west-1.amazonaws.com/'
+// const uri = 'https://api-goodeed.positiveactions.co'
 
 export const fetchProjects = () => {
   return axios.get(uri + 'dev/Project', config)
