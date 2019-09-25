@@ -16,6 +16,18 @@ export const fetchAssosById = (id) => {
   })
 }
 
+export const fetchAdCampaign = () => {
+  return axios.get(`dev/AdCampaign`, config).then(data => {
+    return Promise.resolve(data.data)
+  })
+}
+
+export const postDonation = ({ projectId, campaignId }) => {
+  config.headers['Authorization'] = `Bearer ${localStorage.getItem('jwt')}`
+  return axios.post(`dev/Donation`, { project_id: projectId, campaign_id: campaignId }, config).then(data => {
+    return Promise.resolve(data.data)
+  }).catch(err => Promise.reject(err))
+}
 export const login = ({ email, password }) => {
   return axios.post(`dev/login`, { email, password }, config)
 }

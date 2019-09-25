@@ -19,6 +19,14 @@ const router = new Router({
       }
     },
     {
+      path: '/home',
+      name: 'home',
+      component: Home,
+      meta: {
+        guest: true
+      }
+    },
+    {
       path: '/project',
       name: 'projectDetail',
       component: ProjectDetail,

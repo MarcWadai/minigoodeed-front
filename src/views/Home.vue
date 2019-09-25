@@ -42,7 +42,7 @@ export default {
       this.$router.push({name: 'projectDetail', params: {project}})
     }
   },
-  beforeMount() {
+  mounted() {
     console.log("this.$store", this.$store);
     this.fetchProjects(this.$store);
   }
